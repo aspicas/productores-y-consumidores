@@ -1,1 +1,4 @@
 /ClienteA/build/
+/ServidorA/build/
+.properties
+.xml

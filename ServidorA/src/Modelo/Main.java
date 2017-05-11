@@ -6,17 +6,17 @@
 package Modelo;
 
 /**
- *
+ * Clase principal del servidor
  * @author Familia
+ * @version 1.0
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Main {    
+    
     public static void main(String[] args) {
+        
         Tienda tienda = new Tienda();
         tienda.start();
+        
     }
     
 }

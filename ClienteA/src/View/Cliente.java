@@ -5,6 +5,7 @@
  */
 package View;
 
+import Controller.Protocolos;
 import Model.Preferences;
 
 /**
@@ -127,7 +128,7 @@ public class Cliente extends javax.swing.JFrame {
         }else if (jCBIp.getSelectedItem().toString().equals("Servidor B")) {
             System.out.println("ip "+ServidorB.getIp()+" port "+ServidorB.getPort());
         }else  System.out.println("ip "+ServidorC.getIp()+" port "+ServidorC.getPort());
-        
+       Controller.Protocolos protocolo = new Protocolos();
     }//GEN-LAST:event_jBConectarActionPerformed
 
     /**

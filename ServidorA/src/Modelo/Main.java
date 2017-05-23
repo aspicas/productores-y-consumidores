@@ -14,7 +14,7 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Tienda tienda = new Tienda();
+        TiendaUDP tienda = new TiendaUDP();
         tienda.start();
         
     }

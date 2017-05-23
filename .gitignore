@@ -1,5 +1,6 @@
 /ClienteA/build/
 /ServidorA/build/
-.properties
-.xml
+*.properties
+*.xml
 /ServidorA/dist/
+/ClienteA/nbproject/private/

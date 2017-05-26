@@ -14,7 +14,7 @@ import Model.Preferences;
  */
 public class Cliente extends javax.swing.JFrame {
      
-    private Preferences ServidorA = new Preferences("127.0.0.1", 9800);
+    private Preferences ServidorA = new Preferences("127.0.0.1", 6000);
     private Preferences ServidorB = new Preferences("127.0.2.1", 9889);
     private Preferences ServidorC = new Preferences("127.0.3.1", 9865);
  
@@ -49,7 +49,7 @@ public class Cliente extends javax.swing.JFrame {
         jBConectar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cliente");
 
         jLCantidad.setText("Cantidad");
@@ -125,10 +125,11 @@ public class Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jCBIp.getSelectedItem().toString().equals("Servidor A")) {
             System.out.println("ip "+ServidorA.getIp()+" port "+ServidorA.getPort());
+            Protocolos.ProtocoloA(ServidorA, jTFCantidad.getText());
         }else if (jCBIp.getSelectedItem().toString().equals("Servidor B")) {
             System.out.println("ip "+ServidorB.getIp()+" port "+ServidorB.getPort());
         }else  System.out.println("ip "+ServidorC.getIp()+" port "+ServidorC.getPort());
-       Controller.Protocolos protocolo = new Protocolos();
+   
     }//GEN-LAST:event_jBConectarActionPerformed
 
     /**

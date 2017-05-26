@@ -5,45 +5,53 @@
  */
 package Controller;
 
+import Model.Preferences;
+import Model.ServidorXMLFIle;
 import Modelo.DatoUDP;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author Familia
  */
 public class Protocolos {
- private final int port= 6200;
+ private final static int port= 6200;
+ private final static String IP= "127.0.0.1";
+ private final static byte[] buf = new byte[1024];
  
  
-    public Protocolos() {
+    
+    public static void ProtocoloA (Preferences preferences, String Cantidad) {
         try {
-         DatagramSocket socket = new DatagramSocket(
-                    port, InetAddress.getByName("localhost"));
-
-            // Se instancia un DatoUdp y se convierte a bytes[]
-            DatoUDP elDato = new DatoUDP("hola");
-            byte[] elDatoEnBytes = elDato.toByteArray();
-
-            // Se meten los bytes en el DatagramPacket, que es lo que se
-            // va a enviar por el socket.
-            // El destinatario es el servidor.
-            // El puerto es por el que est� escuchando el servidor.
-            DatagramPacket dato = new DatagramPacket(elDatoEnBytes,
-                    elDatoEnBytes.length, InetAddress
-                            .getByName("localhost"),
-                    6000);
-            
-            // Se env�a el DatagramPacket 10 veces, esperando 1 segundo entre
-            // env�o y env�o.
+         DatagramSocket socket = new DatagramSocket(port, InetAddress.getByName(IP));
+            String datoenviar ="A;"+Cantidad;
+            byte[] bufSend = datoenviar.getBytes();
+            DatagramPacket dato = new DatagramPacket(bufSend,
+                    bufSend.length, InetAddress
+                            .getByName(preferences.getIp()),
+                    preferences.getPort());
+             Calendar calendario = new GregorianCalendar(); 
+                int hora=calendario.get(Calendar.HOUR_OF_DAY);
+                int minutos=calendario.get(Calendar.MINUTE);
+                String Hora = hora+":"+minutos;
+                String Nombre = IP;
+                String Destino= preferences.getIp();
+             ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Destino);
             for (int i = 0; i < 10; i++)
             {
-                System.out.println("Envio dato " + i);
+                System.out.println("Envio dato " + datoenviar);
                 socket.send(dato);
+                DatagramPacket packet = new DatagramPacket(buf, buf.length);
+                socket.receive(packet);
+                String recibe=new String(packet.getData());
+                System.out.println(recibe);
                 Thread.sleep(1000);
             }
+            socket.close();
      } catch (Exception e)
         {
             e.printStackTrace();

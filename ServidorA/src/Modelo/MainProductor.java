@@ -6,18 +6,15 @@
 package Modelo;
 
 /**
- * Clase principal del servidor
+ *
  * @author Familia
- * @version 1.0
  */
-public class Main {    
+public class MainProductor {
     
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         
-        TiendaUDP tienda = new TiendaUDP();
+        ProductorA tienda = new ProductorA();
         tienda.start();
-        ProductorA tienda2 = new ProductorA();
-        tienda2.start();
+        
     }
-    
 }

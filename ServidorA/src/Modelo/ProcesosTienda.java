@@ -89,7 +89,10 @@ public class ProcesosTienda extends Thread {
             System.out.println("Pedir: "+numProductos);
                     pedir=true;;
         }
-        
+        if (cantidad <= numProductos){
+             numProductos= numProductos - cantidad;
+             System.out.println("Pedir2: "+numProductos);
+            pedir=true;}
             
     }
     public static void verificarProductosZ (int cantidad){
@@ -112,7 +115,10 @@ public class ProcesosTienda extends Thread {
             System.out.println("Pedir: "+numProductos);
                     pedir=true;;
         }
-        
+        if (cantidad <= numProductos){
+             numProductos= numProductos - cantidad;
+             System.out.println("Pedir2: "+numProductos);
+            pedir=true;}
             
     }
 

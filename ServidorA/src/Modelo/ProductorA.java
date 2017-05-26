@@ -25,12 +25,11 @@ public class ProductorA extends Thread{
     private static  DatagramPacket packetaenviar;
     private DatagramSocket productor;
     private byte[] buf = new byte[1024];
-    private byte[] bufsend = new byte[124];
-   
+    private byte[] bufsend = new byte[124];    
 
     public ProductorA() {
         try {
-            this.productor= new DatagramSocket(port,InetAddress.getByName("localhost"));
+            this.productor= new DatagramSocket(port,InetAddress.getByName(Redes.clienteA));
         } catch (UnknownHostException ex) {
             Logger.getLogger(TiendaUDP.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SocketException ex) {

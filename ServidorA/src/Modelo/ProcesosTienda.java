@@ -27,7 +27,7 @@ public class ProcesosTienda extends Thread {
     private static Boolean pedir=false;
     private static final int port= 6200;
     private static DatagramSocket socket;
-    private static final String ipproductor = "127.0.0.1";
+    private static final String ipproductor = Redes.clienteA;
     private static  String ipserver="";
 
     public static void setNumProductos(Integer numProductos) {

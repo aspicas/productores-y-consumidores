@@ -7,7 +7,8 @@ package Controller;
 
 import Model.Preferences;
 import Model.ServidorXMLFIle;
-import Modelo.DatoUDP;
+import Model.DatoUDP;
+import Model.Redes;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -21,8 +22,8 @@ import java.util.GregorianCalendar;
 public class Protocolos {
  private final static int port= 6200;
   private final static int portmwz= 7000;
- private final static String IP= "127.0.0.1";
-  private final static String IP_MWZ= "127.0.0.1";
+ private final static String IP= Redes.servidorA;
+  private final static String IP_MWZ= Redes.servidorA;
  private final static byte[] buf = new byte[1024];
  
  

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Redes;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -27,15 +28,15 @@ public class MWZ extends Thread{
     private DatagramSocket mwz;
     private byte[] buf = new byte[1024];
     private byte[] bufsend = new byte[124];
-    private final static String IP_A= "127.0.0.1";
-    private final static String IP_B= "127.0.0.1";
-    private final static String IP_C= "127.0.0.1";
+    private final static String IP_A= Redes.servidorA;
+    private final static String IP_B= Redes.servidorB;
+    private final static String IP_C= Redes.servidorC;
 
    
 
     public MWZ() {
         try {
-            this.mwz= new DatagramSocket(port,InetAddress.getByName("localhost"));
+            this.mwz= new DatagramSocket(port,InetAddress.getByName(Redes.servidorA));
         } catch (UnknownHostException ex) {
             Logger.getLogger(MWZ.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SocketException ex) {

@@ -68,7 +68,7 @@ public class MWZ extends Thread{
                 DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
                 mwz.receive(packet2);
                 String recibe2=new String(packet2.getData());
-                System.out.println(recibe2);
+                System.out.println("Recibo de Servidor"+recibe2);
                }
                 if (aux[1].equals("B")){
                      DatagramPacket dato = new DatagramPacket(bufsend,
@@ -79,7 +79,7 @@ public class MWZ extends Thread{
                 DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
                 mwz.receive(packet2);
                 String recibe2=new String(packet2.getData());
-                System.out.println(recibe2);
+                System.out.println("Recibo de Servidor"+recibe2);
                }
                 if (aux[1].equals("C")){
                      DatagramPacket dato = new DatagramPacket(bufsend,
@@ -90,7 +90,7 @@ public class MWZ extends Thread{
                 DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
                 mwz.receive(packet2);
                 String recibe2=new String(packet2.getData());
-                System.out.println(recibe2);
+                System.out.println("Recibo de Servidor"+recibe2);
                }
               
                mwz.close();

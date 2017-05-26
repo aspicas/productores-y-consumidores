@@ -42,20 +42,22 @@ public class ProcesosTienda extends Thread {
                 socket=tienda;
                 String Hora = hora+":"+minutos;
                 String Nombre = packet.getAddress().getHostName();
-                String Cantidad = "3";
+                String Cantidad = "15";
                 String Protocolo= aux[0];
                 System.out.println(aux[1]);
                 ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Protocolo);
-                verificarProductos(Integer.parseInt(Cantidad));
+                verificarProductos(Integer.parseInt(aux[1]));
                 if (pedir){
                 String Hola = "Completado";
                 bufsend = Hola.getBytes();
                 packetaenviar= new DatagramPacket(bufsend,bufsend.length, packet.getAddress(), packet.getPort());
+                 System.out.println(Hola);
                 }
                 else{
                 String Hola = "Error";
                 bufsend = Hola.getBytes();
                 packetaenviar= new DatagramPacket(bufsend,bufsend.length, packet.getAddress(), packet.getPort());
+                 System.out.println(Hola);
                 }
                 
                
@@ -67,28 +69,50 @@ public class ProcesosTienda extends Thread {
     }
     
     public static void verificarProductos (int cantidad){
-        if (cantidad > numProductos){
+        
+        if (numProductos == 0){
             System.out.println("Tienda no posee Productos");
+            reponer();
+            if (cantidad < numProductos){
+             numProductos= numProductos - cantidad;
+             System.out.println("Pedir2: "+numProductos);
+            pedir=true;}
+             else if (cantidad > numProductos){
             System.out.println(cantidad);
             pedir=pedirProductos(cantidad);
-            System.out.println(numProductos);
+            System.out.println("Pedir: "+numProductos);
+             pedir=true;}
         }
-        if (numProductos == 0){
-            reponer();
+        else if (cantidad > numProductos){
+            System.out.println(cantidad);
+            pedir=pedirProductos(cantidad);
+            System.out.println("Pedir: "+numProductos);
+                    pedir=true;;
         }
-        if (cantidad < numProductos)
-             numProductos= numProductos - cantidad;
+        
             
     }
     public static void verificarProductosZ (int cantidad){
-        if (cantidad > numProductos){
+       if (numProductos == 0){
             System.out.println("Tienda no posee Productos");
+            reponer();
+            if (cantidad < numProductos){
+             numProductos= numProductos - cantidad;
+             System.out.println("Pedir2: "+numProductos);
+            pedir=true;}
+             else if (cantidad > numProductos){
             System.out.println(cantidad);
             pedir=pedirProductos(cantidad);
-            System.out.println(numProductos);
+            System.out.println("Pedir: "+numProductos);
+             pedir=true;}
         }
-        if (cantidad < numProductos)
-             numProductos= numProductos - cantidad;
+        else if (cantidad > numProductos){
+            System.out.println(cantidad);
+            pedir=pedirProductos(cantidad);
+            System.out.println("Pedir: "+numProductos);
+                    pedir=true;;
+        }
+        
             
     }
 
@@ -109,7 +133,7 @@ public class ProcesosTienda extends Thread {
                 String Destino= ipproductor;
              ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,datoenviar,Destino);
              int numProductos2=0;
-             int cant=0;
+             int cant=5;
            while(numProductos2<=cantidad)
             {
                 System.out.println("Envio dato " + datoenviar);
@@ -118,8 +142,6 @@ public class ProcesosTienda extends Thread {
                 socket.receive(packet);
                 String recibe=new String(packet.getData());
 
-                if (recibe.equals("5")){
-                 cant=5;}
                numProductos2= numProductos2+cant;
                System.out.println("Envio dato2 " + numProductos2);
             }
@@ -154,7 +176,8 @@ public class ProcesosTienda extends Thread {
                 socket.receive(packet);
                 String recibe=new String(packet.getData());
                 System.out.println(recibe);
-                numProductos=Integer.parseInt(recibe);
+               //numProductos=Integer.parseInt(recibe);
+               numProductos=5;
      } catch (Exception e)
         {
             e.printStackTrace();
@@ -178,6 +201,7 @@ public class ProcesosTienda extends Thread {
                 String Hola = "Completado";
                 bufsend = Hola.getBytes();
                 packetaenviar= new DatagramPacket(bufsend,bufsend.length, packet.getAddress(), packet.getPort());
+                
                 }
                 else{
                 String Hola = "Error";

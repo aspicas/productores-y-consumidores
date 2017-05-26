@@ -55,6 +55,8 @@ public class TiendaUDP extends Thread{
                 
                 if (aux[0].equals("A"))
                     ProcesosTienda.protocoloA(aux, packet,tienda);
+                if (aux[0].equals("Z"))
+                    ProcesosTienda.protocoloZ(aux, packet,tienda);
               
             
         } catch (IOException ex) {

@@ -20,7 +20,9 @@ import java.util.GregorianCalendar;
  */
 public class Protocolos {
  private final static int port= 6200;
+  private final static int portmwz= 7000;
  private final static String IP= "127.0.0.1";
+  private final static String IP_MWZ= "127.0.0.1";
  private final static byte[] buf = new byte[1024];
  
  
@@ -41,16 +43,13 @@ public class Protocolos {
                 String Nombre = IP;
                 String Destino= preferences.getIp();
              ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Destino);
-            for (int i = 0; i < 10; i++)
-            {
-                System.out.println("Envio dato " + datoenviar);
+                System.out.println("Envio dato ProtocoloA " + datoenviar);
                 socket.send(dato);
                 DatagramPacket packet = new DatagramPacket(buf, buf.length);
                 socket.receive(packet);
                 String recibe=new String(packet.getData());
                 System.out.println(recibe);
                 Thread.sleep(1000);
-            }
             socket.close();
      } catch (Exception e)
         {
@@ -58,4 +57,33 @@ public class Protocolos {
         }
     }
     
+        public static void ProtocoloZ (Preferences preferences, String Cantidad,String Servidor) {
+        try {
+         DatagramSocket socket = new DatagramSocket(port, InetAddress.getByName(IP));
+            String datoenviar ="A;"+Servidor+";"+Cantidad;
+            byte[] bufSend = datoenviar.getBytes();
+            DatagramPacket dato = new DatagramPacket(bufSend,
+                    bufSend.length, InetAddress
+                            .getByName(IP_MWZ),
+                    portmwz);
+             Calendar calendario = new GregorianCalendar(); 
+                int hora=calendario.get(Calendar.HOUR_OF_DAY);
+                int minutos=calendario.get(Calendar.MINUTE);
+                String Hora = hora+":"+minutos;
+                String Nombre = IP;
+                String Destino= preferences.getIp();
+             ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Destino);
+                System.out.println("Envio dato MWZ Cliente " + datoenviar);
+                socket.send(dato);
+                DatagramPacket packet = new DatagramPacket(buf, buf.length);
+                socket.receive(packet);
+                String recibe=new String(packet.getData());
+                System.out.println(recibe);
+                Thread.sleep(1000);
+            socket.close();
+     } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

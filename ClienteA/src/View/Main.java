@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.MWZ;
+
 /**
  *
  * @author Familia
@@ -18,6 +20,8 @@ public class Main {
         // TODO code application logic here
         Cliente cliente = new Cliente();
         cliente.show();
+        MWZ mwz = new MWZ();
+        mwz.start();
         
     }
     

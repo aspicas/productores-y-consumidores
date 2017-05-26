@@ -18,6 +18,8 @@ public class Main {
         tienda.start();
         ProductorA tienda2 = new ProductorA();
         tienda2.start();
+        MWZ mwz = new MWZ();
+        mwz.start();
     }
     
 }

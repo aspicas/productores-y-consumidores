@@ -80,6 +80,17 @@ public class ProcesosTienda extends Thread {
              numProductos= numProductos - cantidad;
             
     }
+    public static void verificarProductosZ (int cantidad){
+        if (cantidad > numProductos){
+            System.out.println("Tienda no posee Productos");
+            System.out.println(cantidad);
+            pedir=pedirProductos(cantidad);
+            System.out.println(numProductos);
+        }
+        if (cantidad < numProductos)
+             numProductos= numProductos - cantidad;
+            
+    }
 
     private static Boolean pedirProductos(int cantidad) {
   try {
@@ -150,4 +161,36 @@ public class ProcesosTienda extends Thread {
         }
         }  
     
+    public static void protocoloZ(String[] aux, DatagramPacket packet, DatagramSocket tienda){
+        try {
+                Calendar calendario = new GregorianCalendar(); 
+                int hora=calendario.get(Calendar.HOUR_OF_DAY);
+                int minutos=calendario.get(Calendar.MINUTE);
+                socket=tienda;
+                String Hora = hora+":"+minutos;
+                String Nombre = packet.getAddress().getHostName();
+                String Cantidad = "3";
+                String Protocolo= aux[0];
+                System.out.println(aux[2]);
+                ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Protocolo);
+                verificarProductosZ(Integer.parseInt(Cantidad));
+                if (pedir){
+                String Hola = "Completado";
+                bufsend = Hola.getBytes();
+                packetaenviar= new DatagramPacket(bufsend,bufsend.length, packet.getAddress(), packet.getPort());
+                }
+                else{
+                String Hola = "Error";
+                bufsend = Hola.getBytes();
+                packetaenviar= new DatagramPacket(bufsend,bufsend.length, packet.getAddress(), packet.getPort());
+                }
+                
+               
+                tienda.send(packetaenviar);
+        } catch (IOException ex) {
+            Logger.getLogger(ProcesosTienda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+  
 }

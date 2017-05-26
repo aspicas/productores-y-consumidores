@@ -15,8 +15,8 @@ import Model.Preferences;
 public class Cliente extends javax.swing.JFrame {
      
     private Preferences ServidorA = new Preferences("127.0.0.1", 6000);
-    private Preferences ServidorB = new Preferences("127.0.2.1", 9889);
-    private Preferences ServidorC = new Preferences("127.0.3.1", 9865);
+    private Preferences ServidorB = new Preferences("127.0.2.1", 7000);
+    private Preferences ServidorC = new Preferences("127.0.3.1", 7000);
  
 
     
@@ -128,7 +128,9 @@ public class Cliente extends javax.swing.JFrame {
             Protocolos.ProtocoloA(ServidorA, jTFCantidad.getText());
         }else if (jCBIp.getSelectedItem().toString().equals("Servidor B")) {
             System.out.println("ip "+ServidorB.getIp()+" port "+ServidorB.getPort());
-        }else  System.out.println("ip "+ServidorC.getIp()+" port "+ServidorC.getPort());
+            Protocolos.ProtocoloZ(ServidorA, jTFCantidad.getText(),"B");
+        }else { System.out.println("ip "+ServidorC.getIp()+" port "+ServidorC.getPort());
+        Protocolos.ProtocoloZ(ServidorA, jTFCantidad.getText(),"C");}
    
     }//GEN-LAST:event_jBConectarActionPerformed
 

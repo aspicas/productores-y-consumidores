@@ -23,10 +23,10 @@ import java.util.logging.Logger;
 public class MWZ extends Thread{
     private final int port= 7000;
     private final int port_mwz= 7300;
-    private static  DatagramPacket packetaenviar;
     private DatagramSocket mwz;
     private byte[] buf = new byte[1024];
-    private byte[] bufsend = new byte[124];
+    private byte[] bufsend = new byte[1024];
+      private byte[] bufsend = new byte[1024];
     private final static String IP_A= "127.0.0.1";
     private final static String IP_B= "127.0.0.1";
     private final static String IP_C= "127.0.0.1";
@@ -66,10 +66,7 @@ public class MWZ extends Thread{
                             .getByName(IP_A),
                     port_mwz);
                      mwz.send(dato);
-                DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
-                mwz.receive(packet2);
-                String recibe2=new String(packet2.getData());
-                System.out.println("Recibo de MWZ Servidor"+recibe2);
+                
                }
                 if (aux[1].equals("B")){
                     String datoenviar = "Z;B;"+aux[2];
@@ -79,10 +76,7 @@ public class MWZ extends Thread{
                             .getByName(IP_B),
                     port_mwz);
                      mwz.send(dato);
-                DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
-                mwz.receive(packet2);
-                String recibe2=new String(packet2.getData());
-                System.out.println("Recibo de MWZ Servidor"+recibe2);
+                
                }
                 if (aux[1].equals("C")){
                     String datoenviar = "Z;C;"+aux[2];
@@ -92,13 +86,10 @@ public class MWZ extends Thread{
                             .getByName(IP_C),
                     port_mwz);
                      mwz.send(dato);
-                DatagramPacket packet2 = new DatagramPacket(buf, buf.length);
-                mwz.receive(packet2);
-                String recibe2=new String(packet2.getData());
-                System.out.println("Recibo de MWZ Servidor"+recibe2);
+              
                }
               
-               mwz.close();
+ 
         } catch (IOException ex) {
             Logger.getLogger(MWZ.class.getName()).log(Level.SEVERE, null, ex);
         }

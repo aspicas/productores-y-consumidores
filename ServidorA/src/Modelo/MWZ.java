@@ -92,8 +92,7 @@ public class MWZ extends Thread{
                 String recibe2=new String(packet2.getData());
                 System.out.println("Recibo de Servidor"+recibe2);
                }
-              
-               mwz.close();
+     
         } catch (IOException ex) {
             Logger.getLogger(MWZ.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -19,11 +19,12 @@ import java.util.GregorianCalendar;
  * @author Familia
  */
 public class Protocolos {
- private final static int port= 6200;
+    
+  private final static int port= 6200;
   private final static int portmwz= 7000;
- private final static String IP= "127.0.0.1";
+  private final static String IP= "127.0.0.1";
   private final static String IP_MWZ= "127.0.0.1";
- private final static byte[] buf = new byte[1024];
+  private final static byte[] buf = new byte[1024];
  
  
     
@@ -57,7 +58,7 @@ public class Protocolos {
         }
     }
     
-        public static void ProtocoloZ (Preferences preferences, String Cantidad,String Servidor) {
+    public static void ProtocoloZ (Preferences preferences, String Cantidad,String Servidor) {
         try {
          DatagramSocket socket = new DatagramSocket(port, InetAddress.getByName(IP));
             String datoenviar ="A;"+Servidor+";"+Cantidad;
@@ -75,10 +76,6 @@ public class Protocolos {
              ServidorXMLFIle.saveUserInServerDataBase(Hora,Nombre,Cantidad,Destino);
                 System.out.println("Envio dato MWZ Cliente " + datoenviar);
                 socket.send(dato);
-                DatagramPacket packet = new DatagramPacket(buf, buf.length);
-                socket.receive(packet);
-                String recibe=new String(packet.getData());
-                System.out.println(recibe);
                 Thread.sleep(1000);
             socket.close();
      } catch (Exception e)

@@ -6,7 +6,7 @@
 package Model;
 
 /**
- *
+ * 
  * @author Familia
  */
 public class Preferences {

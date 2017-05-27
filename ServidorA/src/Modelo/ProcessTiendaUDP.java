@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Hilo que que maneja las I/O 
  * @author Familia
  */
 public class ProcessTiendaUDP extends Thread {

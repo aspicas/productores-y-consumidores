@@ -6,7 +6,7 @@
 package Modelo;
 
 /**
- *
+ * Mensajes de errores
  * @author Familia
  */
 public class Util {

@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Middleware que maneja las peticiones del servidor externo
  * @author Familia
  */
 public class MWZ extends Thread{

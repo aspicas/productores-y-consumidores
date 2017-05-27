@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- *
+ * Serializacion de los datos I/O
  * @author Familia
  */
 public class DatoUDP implements Serializable {

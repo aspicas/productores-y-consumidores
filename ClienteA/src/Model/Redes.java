@@ -6,7 +6,7 @@
 package Model;
 
 /**
- *
+ * IP de los servidores que se manejaran
  * @author david
  */
 public class Redes {

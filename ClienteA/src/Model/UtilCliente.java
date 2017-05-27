@@ -6,7 +6,7 @@
 package Model;
 
 /**
- *
+ * Mensajes de error que pueden generarse
  * @author Familia
  */
 public class UtilCliente {

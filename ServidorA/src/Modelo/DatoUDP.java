@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- *
+ *  Clase que serializa los mensajes que procesara el servidor
  * @author Familia
  */
 public class DatoUDP implements Serializable {

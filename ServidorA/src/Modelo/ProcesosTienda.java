@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Proceso que manejara la tienda con un hilo
  * @author Familia
  */
 public class ProcesosTienda extends Thread {

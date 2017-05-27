@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+/**
+ * Clase que almacena las ip de los clientes
+ * @author david
+ */
 public class Redes {
     public static final String clienteA = "localhost";
     public static final String clienteB = "192.168.1.101";

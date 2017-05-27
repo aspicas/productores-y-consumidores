@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Manejo de UDP de la tienda
  * @author Familia
  */
 public class TiendaUDP extends Thread{

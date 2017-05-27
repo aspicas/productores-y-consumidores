@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- *
+ * Protocolos que sigue la aplicacion
  * @author Familia
  */
 public class Protocolos {

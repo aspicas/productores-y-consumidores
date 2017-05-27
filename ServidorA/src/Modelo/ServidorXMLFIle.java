@@ -16,7 +16,7 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 /**
- *
+ * Genera los xml de la tienda
  * @author Familia
  */
 public class ServidorXMLFIle {

@@ -16,7 +16,7 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 /**
- *
+ * Generador de archivo xml cliente.xml
  * @author Familia
  */
 public class ServidorXMLFIle {

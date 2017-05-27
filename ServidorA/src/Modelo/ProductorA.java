@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Define el proceso del productor
  * @author Familia
  */
 public class ProductorA extends Thread{

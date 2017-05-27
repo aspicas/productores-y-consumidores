@@ -23,15 +23,9 @@ public class Protocolos {
     
   private final static int port= 6200;
   private final static int portmwz= 7000;
-<<<<<<< HEAD
-  private final static String IP= "127.0.0.1";
-  private final static String IP_MWZ= "127.0.0.1";
-  private final static byte[] buf = new byte[1024];
-=======
  private final static String IP= Redes.servidorA;
-  private final static String IP_MWZ= Redes.servidorA;
+ private final static String IP_MWZ= Redes.servidorA;
  private final static byte[] buf = new byte[1024];
->>>>>>> dd6c2edbdf63567a62cba7723be063b8be45db9d
  
  
     

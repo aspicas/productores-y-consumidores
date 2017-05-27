@@ -7,6 +7,7 @@ package View;
 
 import Controller.Protocolos;
 import Model.Preferences;
+import Model.Redes;
 
 /**
  *
@@ -14,9 +15,9 @@ import Model.Preferences;
  */
 public class Cliente extends javax.swing.JFrame {
      
-    private Preferences ServidorA = new Preferences("127.0.0.1", 6000);
-    private Preferences ServidorB = new Preferences("127.0.2.1", 7000);
-    private Preferences ServidorC = new Preferences("127.0.3.1", 7000);
+    private Preferences ServidorA = new Preferences(Redes.servidorA, 6000);
+    private Preferences ServidorB = new Preferences(Redes.servidorB, 7000);
+    private Preferences ServidorC = new Preferences(Redes.servidorC, 7000);
  
 
     

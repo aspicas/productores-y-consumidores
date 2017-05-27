@@ -30,7 +30,7 @@ public class TiendaUDP extends Thread{
 
     public TiendaUDP() {
         try {
-            this.tienda= new DatagramSocket(port,InetAddress.getByName("localhost"));
+            this.tienda= new DatagramSocket(port,InetAddress.getByName(Redes.clienteA));
         } catch (UnknownHostException ex) {
             Logger.getLogger(TiendaUDP.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SocketException ex) {
@@ -38,7 +38,7 @@ public class TiendaUDP extends Thread{
         }
     }
 
- public void listening() throws UnknownHostException, SocketException {        
+    public void listening() throws UnknownHostException, SocketException {        
             
             while(true){
                  
